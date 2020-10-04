@@ -1,53 +1,49 @@
 ﻿// Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License. See License.txt in the project root for license information.
 
-using Microsoft.Azure.Management.AppService.Fluent;
-using Microsoft.Azure.Management.AppService.Fluent.Models;
-using Microsoft.Azure.Management.Compute.Fluent;
-using Microsoft.Azure.Management.ContainerRegistry.Fluent;
-using Microsoft.Azure.Management.ContainerRegistry.Fluent.Models;
-using Microsoft.Azure.Management.ContainerService.Fluent;
-using Microsoft.Azure.Management.ContainerService.Fluent.Models;
-using Microsoft.Azure.Management.KeyVault.Fluent;
-using Microsoft.Azure.Management.Network.Fluent;
-using Microsoft.Azure.Management.Redis.Fluent;
-using Microsoft.Azure.Management.Storage.Fluent;
-using Microsoft.Azure.Management.Storage.Fluent.Models;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Microsoft.Azure.Management.Sql.Fluent;
-using Microsoft.Azure.Management.TrafficManager.Fluent;
-using Microsoft.Azure.Management.Dns.Fluent;
-using Microsoft.Azure.Management.ResourceManager.Fluent;
 using System.Diagnostics;
 using System.IO;
-using Newtonsoft.Json.Linq;
+using System.Linq;
 using System.Net.Http;
+using System.Text;
+
 using CoreFtp;
-using Microsoft.WindowsAzure.Storage.Blob;
-using Microsoft.WindowsAzure.Storage;
-using Renci.SshNet;
-using Microsoft.Azure.Management.Search.Fluent;
-using Microsoft.Azure.Management.Search.Fluent.Models;
-using Microsoft.Azure.Management.ServiceBus.Fluent;
-using Microsoft.Azure.ServiceBus;
-using System.Threading;
-using System.Net.Http.Headers;
+
+using Microsoft.Azure.Management.AppService.Fluent;
+using Microsoft.Azure.Management.AppService.Fluent.Models;
 using Microsoft.Azure.Management.BatchAI.Fluent;
+using Microsoft.Azure.Management.Compute.Fluent;
+using Microsoft.Azure.Management.ContainerInstance.Fluent;
+using Microsoft.Azure.Management.ContainerRegistry.Fluent;
 using Microsoft.Azure.Management.CosmosDB.Fluent;
 using Microsoft.Azure.Management.CosmosDB.Fluent.Models;
-using Microsoft.Azure.Management.Compute.Fluent.Models;
-using Microsoft.Azure.Management.Graph.RBAC.Fluent;
-using Microsoft.Azure.Management.Graph.RBAC.Fluent.Models;
-using Microsoft.Azure.Management.Network.Fluent.Models;
-using Microsoft.Azure.Management.ContainerInstance.Fluent;
-using Microsoft.Azure.Management.Locks.Fluent;
-using Microsoft.Azure.Management.Msi.Fluent;
+using Microsoft.Azure.Management.Dns.Fluent;
 using Microsoft.Azure.Management.Eventhub.Fluent;
+using Microsoft.Azure.Management.Graph.RBAC.Fluent;
+using Microsoft.Azure.Management.KeyVault.Fluent;
+using Microsoft.Azure.Management.Locks.Fluent;
 using Microsoft.Azure.Management.Monitor.Fluent;
+using Microsoft.Azure.Management.Msi.Fluent;
+using Microsoft.Azure.Management.Network.Fluent;
+using Microsoft.Azure.Management.Network.Fluent.Models;
 using Microsoft.Azure.Management.PrivateDns.Fluent;
+using Microsoft.Azure.Management.Redis.Fluent;
+using Microsoft.Azure.Management.ResourceManager.Fluent;
+using Microsoft.Azure.Management.Search.Fluent;
+using Microsoft.Azure.Management.ServiceBus.Fluent;
+using Microsoft.Azure.Management.Sql.Fluent;
+using Microsoft.Azure.Management.Storage.Fluent;
+using Microsoft.Azure.Management.Storage.Fluent.Models;
+using Microsoft.Azure.Management.TrafficManager.Fluent;
+using Microsoft.Azure.ServiceBus;
+using Microsoft.WindowsAzure.Storage;
+using Microsoft.WindowsAzure.Storage.Blob;
+
+using Newtonsoft.Json.Linq;
+
+using Renci.SshNet;
 
 namespace Microsoft.Azure.Management.Samples.Common
 {
@@ -278,7 +274,7 @@ namespace Microsoft.Azure.Management.Samples.Common
                         .Append(" [").Append(address.IpAddress).Append("]");
                 }
 
-                
+
                 info
                     // Show SSL cert
                     .Append("\n\t\t\tSSL certificate name: ").Append(rule.SslCertificate?.Name ?? "(none)")
@@ -2610,7 +2606,7 @@ namespace Microsoft.Azure.Management.Samples.Common
             if (actionGroup.AzureFunctionReceivers != null && actionGroup.AzureFunctionReceivers.Any())
             {
                 info.Append("\n\tAzure Functions receivers: ");
-                foreach(var er in actionGroup.AzureFunctionReceivers)
+                foreach (var er in actionGroup.AzureFunctionReceivers)
                 {
                     info.Append("\n\t\tName: ").Append(er.Name);
                     info.Append("\n\t\tFunction Name: ").Append(er.FunctionName);
@@ -2635,7 +2631,7 @@ namespace Microsoft.Azure.Management.Samples.Common
             if (actionGroup.ItsmReceivers != null && actionGroup.ItsmReceivers.Any())
             {
                 info.Append("\n\tITSM receivers: ");
-                foreach(var er in actionGroup.ItsmReceivers)
+                foreach (var er in actionGroup.ItsmReceivers)
                 {
                     info.Append("\n\t\tName: ").Append(er.Name);
                     info.Append("\n\t\tWorkspace Id: ").Append(er.WorkspaceId);
@@ -2674,7 +2670,7 @@ namespace Microsoft.Azure.Management.Samples.Common
             if (activityLogAlert.ActionGroupIds != null && activityLogAlert.ActionGroupIds.Any())
             {
                 info.Append("\n\tAction Groups: ");
-                foreach(var er in activityLogAlert.ActionGroupIds)
+                foreach (var er in activityLogAlert.ActionGroupIds)
                 {
                     info.Append("\n\t\tAction Group Id: ").Append(er);
                 }

@@ -1,23 +1,23 @@
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License. See License.txt in the project root for license information.
 
+using System;
+using System.Collections.Generic;
+
 using Microsoft.Azure.Management.Compute.Fluent;
 using Microsoft.Azure.Management.Compute.Fluent.Models;
 using Microsoft.Azure.Management.Fluent;
 using Microsoft.Azure.Management.ResourceManager.Fluent;
 using Microsoft.Azure.Management.ResourceManager.Fluent.Core;
 using Microsoft.Azure.Management.Samples.Common;
-using Renci.SshNet;
-using System;
-using System.Collections.Generic;
 
 namespace CreateVirtualMachineUsingCustomImageFromVM
 {
     public class Program
     {
-        private static string userName = "tirekicker";
-        private static string password = "12NewPA$$w0rd!";
-        private static Region region = Region.USWest;
+        private static readonly string userName = "tirekicker";
+        private static readonly string password = "12NewPA$$w0rd!";
+        private static readonly Region region = Region.USWest;
 
         /**
          * Azure Compute sample for managing virtual machines -
@@ -179,7 +179,7 @@ namespace CreateVirtualMachineUsingCustomImageFromVM
                 Utilities.Log("OS disk SAS Uri: " + osDiskSasUri);
 
                 // Data disks SAS Uri
-                foreach (var disk  in  linuxVM3.DataDisks.Values)
+                foreach (var disk in linuxVM3.DataDisks.Values)
                 {
                     var dataDisk = azure.Disks.GetById(disk.Id);
                     var dataDiskSasUri = dataDisk.GrantAccess(24 * 60);
